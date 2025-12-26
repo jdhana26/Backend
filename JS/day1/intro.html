@@ -1,0 +1,120 @@
+<h1>
+    Day1-JS Data types
+</h1>
+
+
+<script>
+//variables
+var a=10;
+console.log(a);
+let b="Dhana"
+console.log(b);
+const c=12445
+console.log(c);
+
+//hoisting
+// console.log(names);
+// var names="arun"   //undefined
+// console.log(numb);
+// let numb=39;   //reference error
+// console.log(str1);
+// const str1="things" //reference error
+
+
+//global scope
+let global="scope"
+
+function fscope(){
+
+    if(true){
+         var aif = 10
+        console.log(aif);
+        
+    }
+
+
+
+
+
+}
+fscope()
+console.log(global);
+ //  * 4. PRIMITIVE DATA TYPES
+         
+        let stringType = "newworld";
+        let numberType = 70;
+        let booleanType = true;
+        let undefinedType;
+        let nullType = null;
+        let symbolType = Symbol("id");
+        let bigIntType = 12345678901234567890n;
+
+        console.log("String:", stringType);
+        console.log("Number:", numberType);
+        console.log("Boolean:", booleanType);
+        console.log("Undefined:", undefinedType);
+        console.log("Null:", nullType);
+        console.log("Symbol:", symbolType);
+        console.log("BigInt:", bigIntType);
+ //  * 5. OPERATORS
+         
+
+        // Arithmetic Operators
+        console.log("Add:", 10 + 20);
+        console.log("Sub:", 20 - 7);
+        console.log("Mul:", 50 * 5);
+        console.log("Div:", 20 / 5);
+        console.log("Mod:", 20 % 3);
+
+        // Assignment Operators
+        let val = 10;
+        val += 5;
+        console.log("Assignment:", val);
+
+        // Comparison Operators
+        console.log(5 == "5");   // true
+        console.log(8 === "8");  // false
+        console.log(10 != 5);      // true
+        console.log(10 > 5);       // true
+
+        // Logical Operators
+        console.log(true && false); // false
+        console.log(true || false); // true
+        console.log(!true);         // false
+
+        // Ternary Operator
+        let age = 18;
+        let result = (age >= 18) ? "Adult" : "Minor";
+        console.log(result);
+      //  * 6. TRUTHY & FALSY VALUES
+         
+
+        // FALSY VALUES
+        console.log(Boolean(false));
+        console.log(Boolean(0));
+        console.log(Boolean(""));
+        console.log(Boolean(null));
+        console.log(Boolean(undefined));
+        console.log(Boolean(NaN));
+
+        // TRUTHY VALUES
+        console.log(Boolean(1));
+        console.log(Boolean("hello"));
+        console.log(Boolean([]));
+        console.log(Boolean({}));
+        console.log(Boolean("0"));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
