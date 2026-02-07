@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [loginData, setLoginData] = useState({ email: "", password: "" });
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const handleChange = (e) =>
     setLoginData({ ...loginData, [e.target.name]: e.target.value });
