@@ -6,7 +6,7 @@ const route =express.Router()
 
 route.post("/add",added)
 route.put("/updatedata/:_id",updatedata)
-route
+
 
 
 

@@ -16,12 +16,18 @@ export const added = async (req,res)=>{
 }
 export const updatedata = async (req,res)=>{
 
-    console.log(req);
+    console.log(req.params._id);
+    
+
+    console.log(req.body);
 
     try {
       
         const updateData = await deptmodel.findByIdAndUpdate(req.params._id,req.body)
-        res.status(200).json({msg:'Updated Succfully',updateData})
+
+        console.log(updateData);
+        
+        res.status(200).json({msg:'Updated Succfully',userdata:updateData})
         
     } catch (error) {
 
