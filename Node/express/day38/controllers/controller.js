@@ -14,7 +14,42 @@ export const added = async (req,res)=>{
         
     }
 }
-export const updatedata = async (req,res)=>{
+
+export const getdata = async (req,res)=>{
+
+
+    console.log(req);
+
+    const {id} = req.params
+
+    try {
+      
+        const gets = await deptmodel.findById(id)
+
+        console.log(gets);
+        
+        res.status(200).json({msg:'get data',gets})
+        
+    } catch (error) {
+
+         console.log('error',error);
+        
+    }
+    
+
+
+
+
+
+}
+
+
+
+
+
+
+
+export  const updatedata = async (req,res)=>{
 
     console.log(req.params._id);
     
