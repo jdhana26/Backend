@@ -1,35 +1,81 @@
+ import React from 'react'
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import axios from 'axios'
+import { useEffect } from 'react'
+ 
+ const App = () => {
 
-function App() {
-  const [count, setCount] = useState(0)
+const deptSchema ={district_name:"",departments_name:""}
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+
+
+  const [data,setData]=useState(deptSchema)
+
+  const [msg,setMsg]=useState([])
+
+  useEffect(()=>{
+   setData({district_name:"Mayiladuth",
+    departments_name:"Food De"})
+
+
+
+
+  },[])
+
+
+
+const handleClick = async()=>{
+
+    try {
+        const fetchdata = await axios.post("http://localhost:5000/api/dept/add",data)
+
+        console.log(fetchdata);
+        
+         setMsg([fetchdata.data.adddata])
+
+         
+
+
+    } catch (error) {
+        console.log("error",error);
+        
+    }
+
+
+
+
 }
 
-export default App
+
+   return (
+    <>
+    
+     <div>
+       <h1>API Fetch data</h1>
+
+
+
+
+
+       <button onClick={handleClick}>Click to fetch</button>
+
+
+       {msg.map((e,i)=>(
+
+        <div key={i}>
+            <p> dept name:{e.departments_name}</p>
+            <p> dis name:{e.district_name}</p>
+        </div>
+       ))
+       }
+
+
+       {/* {data.departments_name} */}
+
+     </div>
+    </>
+   )
+ }
+ 
+ export default App
+ 

@@ -2,7 +2,7 @@
 import express from 'express';
 import dotenv from 'dotenv'
 import cors from 'cors';
-import route from './routes/route.js';
+import route from './routes/dataRoute.js';
 import connectDb from './config/db.js';
 
 
@@ -11,9 +11,9 @@ connectDb()
 
 const deptapp = express()
 
-deptapp.use(express.json());
-
 deptapp.use(cors())
+
+deptapp.use(express.json())
 
 deptapp.use("/api/dept",route)
 
