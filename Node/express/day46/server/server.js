@@ -18,7 +18,7 @@ app.use(express.json())
 app.use(cors())
 
 
-app.use('/api/hash', D) 
+app.use('/api/hash', route)
 
 
 
