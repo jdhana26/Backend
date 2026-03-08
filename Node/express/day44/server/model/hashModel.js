@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 
 
-const hashSchema = new mongoose.Schema({
+const authSchema = new mongoose.Schema({
 
     name:{type:String},
     email:{type:String,unique:true},
@@ -11,7 +11,7 @@ const hashSchema = new mongoose.Schema({
 
 
 
-const hashModel = mongoose.model("hashPW",hashSchema)
+const authModel = mongoose.model("authdata",authSchema)
 
 
-export default hashModel
+export default authModel

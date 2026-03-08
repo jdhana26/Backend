@@ -1,45 +1,33 @@
-import bcrypt from "bcrypt"
-import hashModel from "../model/hashModel.js"
+import authModel from "../model/hashModel.js"
+import bcrypt from 'bcrypt'
+
+export const addregister = async(req,res)=>{
+
+try {
+    
+const {name,email,password} =req.body
+ 
+const CheckEmail = await authModel.findOne({email})
+
+if(CheckEmail){
+
+    return res.status(400).json({msg:"email already exists"})
+}
+ const saltkey = 10
+
+const hashpassword = await bcrypt.hash(password,saltkey,)
 
 
-export const add = async (req, res) => {
+const addData = await authModel.create({name,email,password:hashpassword})
 
+res.status(201).json({msg:"successfully added"})
 
-    try {
+} catch (error) {
+    
 
-        const { name, email, password } = req.body
-
-
-        console.log(req.body)
-        
-        const checkEmail = await hashModel.findOne({ email })
-
-        if (checkEmail) {
-
-            return res.status(400).json({ msg: "Already in data" })
-        }
-
-        const saltRound = 10
-
-        const hashPassword = await bcrypt.hash(password, saltRound)
-
-        const addData = await hashModel.create({ name, email, password: hashPassword })
-
-        res.status(200).json({ msg: "Data added successfully", addData})
-
-    } catch (error) {
-
-
-        console.log('error occurs..',error)
-        
-
-        res.status(500).json({ msg: "error occurs" })
-
-
-    }
-
+    console.log(error);
     
 }
 
-// 
-// const addData = await hashModel.create({ name, email, password: hashPassword })
+
+}
